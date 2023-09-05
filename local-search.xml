@@ -4,6 +4,25 @@
   
   
   <entry>
+    <title>TeamSpeak3</title>
+    <link href="/2023/08/31/TeamSpeak3/"/>
+    <url>/2023/08/31/TeamSpeak3/</url>
+    
+    <content type="html"><![CDATA[<p>详细见<a href="https://community.teamspeak.com/t/privilege-key-for-server-wont-work/10582/3">https://community.teamspeak.com/t/privilege-key-for-server-wont-work/10582/3</a><br>和<a href="https://cloud.tencent.com/developer/article/2241036?areaSource=102001.16&amp;traceId=9USVj8UltYdQyju73rxeB">https://cloud.tencent.com/developer/article/2241036?areaSource=102001.16&amp;traceId=9USVj8UltYdQyju73rxeB</a><br>问题1：<br>您是否自己托管服务器，这意味着您可以访问“管理服务器查询”组？</p>]]></content>
+    
+    
+    <categories>
+      
+      <category>TeamSpeak3</category>
+      
+    </categories>
+    
+    
+  </entry>
+  
+  
+  
+  <entry>
     <title>代码整洁之道</title>
     <link href="/2023/08/30/%E4%BB%A3%E7%A0%81%E6%95%B4%E6%B4%81%E4%B9%8B%E9%81%93/"/>
     <url>/2023/08/30/%E4%BB%A3%E7%A0%81%E6%95%B4%E6%B4%81%E4%B9%8B%E9%81%93/</url>
@@ -27,7 +46,7 @@
     <link href="/2023/08/29/%E6%AF%94%E4%BA%9A%E8%BF%AA%E6%81%92%E5%8E%8B%E4%BE%9B%E6%B0%B4%E9%A1%B9%E7%9B%AE/"/>
     <url>/2023/08/29/%E6%AF%94%E4%BA%9A%E8%BF%AA%E6%81%92%E5%8E%8B%E4%BE%9B%E6%B0%B4%E9%A1%B9%E7%9B%AE/</url>
     
-    <content type="html"><![CDATA[<h1>项目要求</h1><h2 id="功能实现">功能实现</h2><ul><li><p>运行模式</p><ul><li>时间模式：在该模式下根据用户设定好的时间段运行相应的转速</li><li>速度模式：在该模式下运行设定好的转速</li></ul></li><li><p>设置模式</p><ul><li>时间校准：在该模式下用户可校准设备内置时钟，以便能准确按照设定时间运行</li><li>时间段设置：在该模式下用户可设置四段时间（包括开机和关机时间），以及对应时间段的运行转速</li><li>转速设置：在该模式下用户可设置速度模式下运行的转速</li></ul></li></ul><h1>底层驱动</h1><h2 id="数码管驱动芯片-TM1628">数码管驱动芯片-TM1628</h2><h2 id="时钟芯片-DS1302Z">时钟芯片-DS1302Z</h2><h2 id="Modbus-RTU-485-通讯协议">Modbus RTU 485 通讯协议</h2><h1>项目中遇到的问题</h1><h1>需要改进的地方</h1><blockquote><p><strong>鲁迅</strong></p><p><em>我家门前有两棵树一颗是枣树，另一颗也是枣树</em></p></blockquote>]]></content>
+    <content type="html"><![CDATA[<h1>一、 回顾项目目标</h1><p>本次项目是基于51单片机的恒压供水显示面板驱动程序开发</p><h2 id="项目意义">项目意义</h2><p>本次项目既是满足客户需求进行开发，更是为将来我们自己生产的恒压供水面板打下基础，触摸面板已经成为趋势</p><h2 id="需要实现的基本功能">需要实现的基本功能</h2><h3 id="运行模式">运行模式</h3><p>该程序需要有两种基本运行模式——时间模式和转速模式</p><ul><li><p>时间模式：</p><ul><li>电机按照用户提前设定好的四段时间运行</li><li>时间段内运行转速可单独设置</li><li>在时间段内，用户可以通过启停按钮对电机进行操作，在时间段外则无法操作</li></ul></li><li><p>转速模式：</p><ul><li>电机将按照用户设定好的转速运行</li><li>通过启停按钮进行操作</li></ul></li></ul><p>另有一种特殊模式——全功率模式（反冲洗模式）</p><ul><li>全功率模式：<ul><li>电机全功率运行5分钟</li><li>到达运行时间自动停止</li><li>可通过启停按钮提前退出</li></ul></li></ul><h3 id="设置模式">设置模式</h3><ul><li><p>时间校准：</p><blockquote><p>在该模式下用户可校准设备内置时钟，以便能准确按照设定时间运行</p></blockquote></li><li><p>时间段设置：</p><blockquote><p>在该模式下用户可设置四段时间（包括开机和关机时间），以及对应时间段的运行转速</p></blockquote></li><li><p>转速设置：</p><blockquote><p>在该模式下用户可设置转速模式下运行的转速</p></blockquote></li></ul><h2 id="底层驱动">底层驱动</h2><h3 id="数码管驱动芯片-TM1628">数码管驱动芯片-TM1628</h3><h3 id="时钟芯片-DS1302Z">时钟芯片-DS1302Z</h3><h3 id="Modbus-RTU-485-通讯协议">Modbus RTU 485 通讯协议</h3><h1>二、 评估结果</h1><h1>三、 分析原因</h1><h2 id="项目中遇到的问题">项目中遇到的问题</h2><h1>四、 总结经验</h1><h2 id="需要改进的地方">需要改进的地方</h2><blockquote><p><em>我不知道在别人看来，我是什么样的人。但在我自己看来，我不过就象是一个在海滨玩耍的小孩，为不时发现比寻常更为光滑的一块卵石或比寻常更为美丽的一片贝壳而沾沾自喜，而对于展现在我面前的浩瀚的真理的海洋，却全然没有发现。如果说我比别人看得更远些,那是因为我站在了巨人的肩上</em></p><p><strong>——  艾萨克·牛顿</strong></p></blockquote>]]></content>
     
     
     <categories>
